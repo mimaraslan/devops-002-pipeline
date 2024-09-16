@@ -12,14 +12,14 @@ spec:
         app: my-application
     spec:
       containers:
-      - name: my-application
-        image: mimaraslan/my-application:latest
-        resources:
-          limits:
-            memory: "128Mi"
-            cpu: "500m"
-        ports:
-        - containerPort: 8081
+        - name: my-application
+          image: mimaraslan/my-application:latest
+          resources:
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 8081
 ---
 apiVersion: v1
 kind: Service
@@ -29,6 +29,6 @@ spec:
   selector:
     app: my-application
   ports:
-  - port: 8081
-    targetPort: 8081
+    - port: 8081
+      targetPort: 8081
   type: NodePort
