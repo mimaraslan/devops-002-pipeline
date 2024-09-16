@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: my-application
-        image: mimaraslan/my-application
+        image: mimaraslan/my-application:latest
         resources:
           limits:
             memory: "128Mi"
@@ -31,3 +31,4 @@ spec:
   ports:
   - port: 8081
     targetPort: 8081
+  type: NodePort
