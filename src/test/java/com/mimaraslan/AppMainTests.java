@@ -27,7 +27,7 @@ class AppMainTests {
     void shouldReturnHelloWorld() throws Exception {
         this.mockMvc.perform(get("/info"))
                 .andExpect(status().isOk())
-                .andExpect(content().string("DEVOPS INFO : " + LocalDateTime.now()));
+                .andExpect(content().string("DEVOPS INFO : "));
     }
 
 
