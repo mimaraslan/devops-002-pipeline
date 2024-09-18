@@ -23,7 +23,7 @@ public class DevOpsController {
     @GetMapping("/info")
     public String info() {
         //return "DEVOPS INFO : " + LocalDateTime.now();
-        return "DEVOPS INFO : " ;
+        return "DEVOPS INFO";
     }
 
 }
