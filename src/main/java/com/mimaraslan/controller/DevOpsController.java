@@ -22,8 +22,7 @@ public class DevOpsController {
     //  http://localhost:8081/info
     @GetMapping("/info")
     public String info() {
-        //return "DEVOPS INFO : " + LocalDateTime.now();
-        return "DEVOPS INFO";
+        return "DEVOPS INFO : " + LocalDateTime.now();
     }
 
 }
