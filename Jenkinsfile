@@ -18,6 +18,14 @@ pipeline {
         }
 
 
+       stage('Unit Test') {
+            steps {
+                 bat 'Unit Test''
+            }
+        }
+
+
+
         stage('Docker Image') {
             steps {
             //  sh 'docker build  -t mimaraslan/my-application:latest  .'
@@ -49,6 +57,12 @@ pipeline {
                 kubernetesDeploy (configs: 'deployment-service.yml', kubeconfigId: 'kubernetes')
             }
         }
+
+       stage('Docker Image to Clean') {
+         steps {
+                    bat 'echo Docker Image to Clean'
+          }
+       }
 
 
     }
