@@ -19,7 +19,6 @@ pipeline {
         }
 
 
-/*
        stage('Unit Test') {
             steps {
                 // sh 'mvn test'
@@ -29,8 +28,6 @@ pipeline {
                // bat 'echo Unit Test'
             }
         }
-     */
-
 
 
         stage('Docker Image') {
@@ -59,13 +56,12 @@ pipeline {
             }
         }
 
+
         stage('Deploy to Kubernetes'){
             steps{
                 kubernetesDeploy (configs: 'deployment-service.yml', kubeconfigId: 'kubernetes')
             }
         }
-
-
 
 
        stage('Docker Image to Clean') {
@@ -77,7 +73,6 @@ pipeline {
                 bat 'docker image prune -f'
           }
        }
-
 
 
     }
