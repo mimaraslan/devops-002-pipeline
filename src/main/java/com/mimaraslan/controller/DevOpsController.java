@@ -24,7 +24,9 @@ public class DevOpsController {
     @GetMapping("/info")
     public String info() {
         System.out.println("DEVOPS INFO : " + LocalDateTime.now());
-        return "DEVOPS INFO : " + LocalDateTime.now();
+        //return "DEVOPS INFO : " + LocalDateTime.now();
+        return "DEVOPS INFO : ";
+
     }
 
 }
