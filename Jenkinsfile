@@ -20,7 +20,7 @@ pipeline {
 
        stage('Unit Test') {
             steps {
-                 bat 'Unit Test''
+                 bat 'echo Unit Test'
             }
         }
 
