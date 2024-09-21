@@ -28,7 +28,7 @@ class AppMainTests {
         //  http://localhost:8081/info
         this.mockMvc.perform(get("/info"))
                 .andExpect(status().isOk())
-                .andExpect(content().string("DEVOPS INFO : "));
+                .andExpect(content().string("DEVOPS INFO : 2024"));
     }
 
 }
