@@ -11,45 +11,45 @@ pipeline {
 
         stage('Build Maven') {
             steps {
-            checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/mimaraslan/devops-002-pipeline']])
+                checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/mimaraslan/devops-002-pipeline']])
 
-            // sh 'mvn clean install'
-              bat 'mvn clean install'
+                // sh 'mvn clean install'
+                  bat 'mvn clean install'
             }
         }
 
 
-       stage('Unit Test') {
+        stage('Unit Test') {
             steps {
                 // sh 'mvn test'
                   bat 'mvn test'
 
-               // sh 'echo Unit Test'
-               // bat 'echo Unit Test'
+                // sh 'echo Unit Test'
+                // bat 'echo Unit Test'
             }
         }
 
 
         stage('Docker Image') {
-            steps {
-            //  sh 'docker build  -t mimaraslan/my-application:latest  .'
-               bat 'docker build  -t mimaraslan/my-application:latest  .'
-            }
+           steps {
+               //  sh 'docker build  -t mimaraslan/my-application:latest  .'
+                  bat 'docker build  -t mimaraslan/my-application:latest  .'
+           }
         }
 
 
         stage('Docker Image to DockerHub') {
             steps {
-              script{
+                script{
                     withCredentials([string(credentialsId: 'dockerhub', variable: 'dockerhub')]) {
 
-                         //  sh 'echo docker login -u mimaraslan -p DOCKERHUB_TOKEN'
-                         // bat 'echo docker login -u mimaraslan -p DOCKERHUB_TOKEN'
+                        //  sh 'echo docker login -u mimaraslan -p DOCKERHUB_TOKEN'
+                        // bat 'echo docker login -u mimaraslan -p DOCKERHUB_TOKEN'
 
-                         // sh 'echo docker login -u mimaraslan -p ${dockerhub}'
-                           bat 'echo docker login -u mimaraslan -p ${dockerhub}'
+                        // sh 'echo docker login -u mimaraslan -p ${dockerhub}'
+                          bat 'echo docker login -u mimaraslan -p ${dockerhub}'
 
-                         // sh 'docker image push  mimaraslan/my-application:latest'
+                        // sh 'docker image push  mimaraslan/my-application:latest'
                            bat 'docker image push  mimaraslan/my-application:latest'
                     }
                 }
@@ -65,13 +65,13 @@ pipeline {
 
 
        stage('Docker Image to Clean') {
-         steps {
-             //   sh 'docker rmi mimaraslan/my-application:latest'
-             //  bat 'docker rmi mimaraslan/my-application:latest'
+           steps {
+               //   sh 'docker rmi mimaraslan/my-application:latest'
+               //  bat 'docker rmi mimaraslan/my-application:latest'
 
-             // sh 'docker image prune -f'
+               // sh 'docker image prune -f'
                 bat 'docker image prune -f'
-          }
+           }
        }
 
 
