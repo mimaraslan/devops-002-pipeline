@@ -1,4 +1,4 @@
-# DevOps Pipeline
+# DevOps CI/CD Pipeline
 
 ### Jenkins, Java, Git, GitHub, Maven, Docker, DockerHub, Kubernetes
 
