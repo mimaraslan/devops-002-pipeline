@@ -8,6 +8,7 @@ pipeline {
 
     stages {
 
+
         stage('Build Maven') {
             steps {
             checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/mimaraslan/devops-002-pipeline']])
@@ -18,15 +19,17 @@ pipeline {
         }
 
 
+/*
        stage('Unit Test') {
             steps {
                 // sh 'mvn test'
                   bat 'mvn test'
 
                // sh 'echo Unit Test'
-                 bat 'echo Unit Test'
+               // bat 'echo Unit Test'
             }
         }
+     */
 
 
 
@@ -62,11 +65,19 @@ pipeline {
             }
         }
 
+
+
+
        stage('Docker Image to Clean') {
          steps {
-                    bat 'echo Docker Image to Clean'
+             //   sh 'docker rmi mimaraslan/my-application:latest'
+             //  bat 'docker rmi mimaraslan/my-application:latest'
+
+             // sh 'docker image prune -f'
+                bat 'docker image prune -f'
           }
        }
+
 
 
     }
